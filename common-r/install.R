@@ -1,37 +1,5 @@
 install.packages(c(
-  'base64enc',
-  'drat',
-  'RJSONIO',
-  'itertools',
-  'digest',
-  'Rcpp',
-  'functional',
-  'plyr',
-  'reshape2',
-  'caTools',
-  'DBI',
-  'R.methodsS3',
-  'Hmisc',
-  'memoise',
-  'rjson',
-  'shiny',
-  'rmarkdown',
-  'leaflet',
-  'geojsonio',
-  'sf',
-  'zip',
-  'argparser',
-  'jsonlite',
-  'uuid',
-  'repr',
-  'IRkernel',
-  'IRdisplay',
-  'evaluate',
-  'crayon',
-  'pbdZMQ',
-  'digest',
-  'base64enc',
-  'versions'
+  'geojsonio'
 ), repos="http://cran.cnr.berkeley.edu")
 
 versions::install.versions('devtools', '1.13.6', lib='/usr/lib/R/library')

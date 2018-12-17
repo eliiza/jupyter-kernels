@@ -1,5 +1,5 @@
 # Ubuntu 18.04.1 LTS Bionic
-FROM jupyter/scipy-notebook:61d8aaedaeaf
+FROM jupyter/scipy-notebook:2343e33dec46
 
 COPY kernel-launchers /usr/local/share/jupyter/kernel-launchers/
 

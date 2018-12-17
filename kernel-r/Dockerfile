@@ -2,17 +2,17 @@
 # Attempts to use newer versions - within a couple months of 9/18/2018 - were encountering this issue:
 # https://github.com/jupyter/docker-stacks/issues/679 - r-notebook kernel crashes because of png support
 # Ubuntu 16.04.4 LTS - Xenial
-FROM jupyter/r-notebook:8a1b90cbcba5
+FROM jupyter/r-notebook:2343e33dec46
 
 # Additional package needed by launcher, update IRkernel to fix kernel shutdown.
 COPY common-r/requirements.txt /tmp/requirements.txt
-RUN conda upgrade conda && \
+RUN conda update --yes conda && \
   conda install -c r --yes --file /tmp/requirements.txt && \
   conda clean -tipsy && \
   fix-permissions $CONDA_DIR
 
-# COPY common-r/install.R /tmp/install.R
-# RUN Rscript --slave --no-save --no-restore-history /tmp/install.R
+COPY common-r/install.R /tmp/install.R
+RUN Rscript --slave --no-save --no-restore-history /tmp/install.R
 
 # Install OOTB kernelspecs
 COPY kernel-launchers /usr/local/share/jupyter/kernel-launchers/

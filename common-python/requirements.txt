@@ -1,1 +1,5 @@
 pycrypto
+cffi
+ipykernel
+ipython
+jupyter_client
