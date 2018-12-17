@@ -41,6 +41,8 @@ RUN wget https://www-us.apache.org/dist/spark/spark-2.4.0/${spark_version}.tgz &
   mv ${spark_version}/sbin /opt/spark/sbin && \
   mv ${spark_version}/examples /opt/spark/examples && \
   mv ${spark_version}/data /opt/spark/data && \
+  mv ${spark_version}/R /opt/spark/R && \
+  mv ${spark_version}/python /opt/spark/python && \
   mv ${spark_version}/${img_path}/spark/entrypoint.sh /opt/ && \
   mv ${spark_version}/${k8s_tests} /opt/spark/tests && \
   rm -Rf ${spark_version}.tgz ${spark_version}
@@ -54,6 +56,7 @@ RUN mkdir -p /tmp/jars && \
 
 
 ENV SPARK_HOME /opt/spark
+ENV PYTHONPATH ${SPARK_HOME}/python/lib/pyspark.zip:${SPARK_HOME}/python/lib/py4j-*.zip
 
 WORKDIR /opt/spark/work-dir
 
