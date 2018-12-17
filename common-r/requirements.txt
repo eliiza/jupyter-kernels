@@ -1,4 +1,16 @@
+r-argparser=0.4*
 r-essentials
 r-tidyverse
 r-sparklyr
-r-stringr
+r-base64enc
+r-leaflet
+r-drat
+r-rjsonio
+r-itertools
+r-functional
+r-Hmisc
+r-memoise
+r-rjson
+r-sf
+r-zip
+r-rversions

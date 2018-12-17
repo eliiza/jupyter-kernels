@@ -6,7 +6,7 @@ FROM jupyter/r-notebook:8a1b90cbcba5
 
 # Additional package needed by launcher, update IRkernel to fix kernel shutdown.
 COPY common-r/requirements.txt /tmp/requirements.txt
-RUN conda install --quiet --yes 'r-argparser=0.4*' && \
+RUN conda upgrade conda && \
   conda install -c r --yes --file /tmp/requirements.txt && \
   conda clean -tipsy && \
   fix-permissions $CONDA_DIR
