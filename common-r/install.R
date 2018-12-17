@@ -1,5 +1,4 @@
 install.packages(c(
-  'tidyverse',
   'base64enc',
   'drat',
   'RJSONIO',
@@ -15,7 +14,6 @@ install.packages(c(
   'Hmisc',
   'memoise',
   'rjson',
-  'sparklyr',
   'shiny',
   'rmarkdown',
   'leaflet',
@@ -25,7 +23,6 @@ install.packages(c(
   'argparser',
   'jsonlite',
   'uuid',
-  'stringr',
   'repr',
   'IRkernel',
   'IRdisplay',

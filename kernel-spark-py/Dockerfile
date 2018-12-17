@@ -40,7 +40,7 @@ RUN apk add --no-cache build-base libffi-dev openssl-dev python-dev && \
     pip install cffi ipykernel ipython jupyter_client pycrypto
 
 COPY common-python/requirements.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt && rm -f /tmp/requirements.txt
+RUN conda install --yes --file /tmp/requirements.txt
 
 COPY kernel-launchers /usr/local/share/jupyter/kernel-launchers/
 RUN adduser -S -u 1000 -G users jovyan && \

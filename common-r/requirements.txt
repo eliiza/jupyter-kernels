@@ -1,0 +1,4 @@
+r-essentials
+r-tidyverse
+r-sparklyr
+r-stringr
