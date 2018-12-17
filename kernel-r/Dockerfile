@@ -5,14 +5,14 @@
 FROM jupyter/r-notebook:8a1b90cbcba5
 
 # Additional package needed by launcher, update IRkernel to fix kernel shutdown.
-RUN conda install --quiet --yes \
-  'r-argparser=0.4*' && \
-  conda install -c r r-essentials r-tidyverse sparklyr && \
+COPY common-r/requirements.txt /tmp/requirements.txt
+RUN conda install --quiet --yes 'r-argparser=0.4*' && \
+  conda install -c r --yes --file /tmp/requirements.txt && \
   conda clean -tipsy && \
   fix-permissions $CONDA_DIR
 
 # COPY common-r/install.R /tmp/install.R
-# Rscript --slave --no-save --no-restore-history /tmp/install.R && \
+# RUN Rscript --slave --no-save --no-restore-history /tmp/install.R
 
 # Install OOTB kernelspecs
 COPY kernel-launchers /usr/local/share/jupyter/kernel-launchers/
@@ -20,7 +20,6 @@ COPY kernel-launchers /usr/local/share/jupyter/kernel-launchers/
 # Switch back to root to create the kernel user
 USER root
 
-RUN chown jovyan:users /usr/local/share/jupyter/kernel-launchers/ && \
-	chown -R jovyan:users /usr/local/share/jupyter
+RUN chown -R jovyan:users /usr/local/share/jupyter
 
 USER jovyan
