@@ -13,10 +13,14 @@ RUN conda update --yes conda && \
 
 USER root
 RUN apt update -y && \
-    apt install -y software-properties-common && \
-    add-apt-repository -y ppa:opencpu/jq && \
-    apt update -y && \
-    apt install -y libjq-dev libv8-3.14-dev libprotobuf-dev
+    apt install -y libjq-dev \
+      libv8-3.14-dev \
+      protobuf-compiler \
+      libprotobuf-dev \
+      libudunits2-dev \
+      libgdal-dev \
+      libgdal20 \
+      libgeos-dev
 USER jovyan
 
 COPY common-r/install.R /tmp/install.R

@@ -14,3 +14,4 @@ r-rjson
 r-sf
 r-zip
 r-rversions
+r-devtools
