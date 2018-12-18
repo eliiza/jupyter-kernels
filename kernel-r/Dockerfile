@@ -11,10 +11,12 @@ RUN conda update --yes conda && \
   conda clean -tipsy && \
   fix-permissions $CONDA_DIR
 
+USER root
 RUN apt install -y software-properties-common && \
     add-apt-repository -y ppa:opencpu/jq && \
     apt update -y && \
     apt install -y libjq-dev libv8-3.14-dev libprotobuf-dev
+USER jovyan
 
 COPY common-r/install.R /tmp/install.R
 RUN Rscript --slave --no-save --no-restore-history /tmp/install.R

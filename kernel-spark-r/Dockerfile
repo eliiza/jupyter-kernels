@@ -1,7 +1,10 @@
 FROM eliiza/spark-base:latest
 
 USER root
-RUN apt install -y r-base-dev r-base
+RUN apt install -y software-properties-common && \
+    add-apt-repository -y ppa:opencpu/jq && \
+    apt update -y && \
+    apt install -y libjq-dev libv8-3.14-dev libprotobuf-dev r-base-dev r-base
 USER jovyan
 
 ENV R_HOME /usr/lib/R
@@ -12,12 +15,7 @@ COPY common-r/requirements.txt /tmp/requirements.txt
 RUN conda update --yes conda && \
   conda install -c r --yes --file /tmp/requirements.txt && \
   conda clean -tipsy && \
-  fix-permissions $CONDA_DIR
-
-RUN apt install -y software-properties-common && \
-    add-apt-repository -y ppa:opencpu/jq && \
-    apt update -y && \
-    apt install -y libjq-dev libv8-3.14-dev libprotobuf-dev
+  fix-permissions $CONDA_DIR\
 
 COPY common-r/install.R /tmp/install.R
 RUN Rscript --slave --no-save --no-restore-history /tmp/install.R
