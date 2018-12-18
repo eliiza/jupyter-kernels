@@ -1,7 +1,8 @@
 FROM eliiza/spark-base:latest
 
 USER root
-RUN apt install -y software-properties-common && \
+RUN apt update -y && \
+    apt install -y software-properties-common && \
     add-apt-repository -y ppa:opencpu/jq && \
     apt update -y && \
     apt install -y libjq-dev libv8-3.14-dev libprotobuf-dev r-base-dev r-base
