@@ -14,9 +14,10 @@ RUN conda update --yes conda && \
   conda clean -tipsy && \
   fix-permissions $CONDA_DIR
 
-RUN add-apt-repository -y ppa:opencpu/jq && \
-    apt-get update && \
-    apt-get install -y libjq-dev libv8-3.14-dev libprotobuf-dev
+RUN apt install -y software-properties-common && \
+    add-apt-repository -y ppa:opencpu/jq && \
+    apt update -y && \
+    apt install -y libjq-dev libv8-3.14-dev libprotobuf-dev
 
 COPY common-r/install.R /tmp/install.R
 RUN Rscript --slave --no-save --no-restore-history /tmp/install.R
