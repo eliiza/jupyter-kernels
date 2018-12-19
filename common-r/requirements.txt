@@ -1,4 +1,16 @@
+r-base=3.4.1
 r-argparser=0.4*
+r-irkernel=0.8*
+r-devtools=1.13*
+r-rsqlite=2.0*
+r-nycflights13=0.2*
+r-caret=6.0*
+r-rcurl=1.95*
+r-crayon=1.3*
+r-randomforest=4.6*
+r-htmltools=0.3*
+r-htmlwidgets=1.0*
+r-hexbin=1.27*
 r-essentials
 r-tidyverse
 r-sparklyr
@@ -14,4 +26,3 @@ r-rjson
 r-sf
 r-zip
 r-rversions
-r-devtools

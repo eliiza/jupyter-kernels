@@ -33,6 +33,8 @@ COPY kernel-launchers/bootstrap/bootstrap-kernel.sh /usr/local/bin/
 # Switch back to root to create the kernel user
 USER root
 
-RUN chown -R jovyan:users /usr/local/share/jupyter
+RUN chown jovyan:users /usr/local/bin/bootstrap-kernel.sh && \
+	  chmod 0755 /usr/local/bin/bootstrap-kernel.sh && \
+    chown -R jovyan:users /usr/local/share/jupyter
 
 USER jovyan

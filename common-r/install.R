@@ -1,4 +1,3 @@
 install.packages(c(
-  'geojsonio',
-  'versions'
+  'geojsonio'
 ), repos="http://cran.cnr.berkeley.edu")
