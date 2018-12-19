@@ -28,6 +28,7 @@ RUN Rscript --slave --no-save --no-restore-history /tmp/install.R
 
 # Install OOTB kernelspecs
 COPY kernel-launchers /usr/local/share/jupyter/kernel-launchers/
+COPY kernel-launchers/bootstrap/bootstrap-kernel.sh /usr/local/bin/
 
 # Switch back to root to create the kernel user
 USER root

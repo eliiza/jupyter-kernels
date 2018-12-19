@@ -2,6 +2,7 @@
 FROM jupyter/scipy-notebook:latest
 
 COPY kernel-launchers /usr/local/share/jupyter/kernel-launchers/
+COPY kernel-launchers/bootstrap/bootstrap-kernel.sh /usr/local/bin/
 
 COPY common-python/requirements.txt /tmp/requirements.txt
 RUN conda install --yes --file /tmp/requirements.txt
